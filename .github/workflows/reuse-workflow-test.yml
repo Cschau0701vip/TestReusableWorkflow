@@ -1,4 +1,4 @@
-name: Call Reusable Workflow and Publish Image
+name: Call Reusable Workflow and Publish-Test Image
 
 on: [push]
 
