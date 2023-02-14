@@ -1,0 +1,25 @@
+name: Call Reusable Workflow and Publish Image
+
+on:
+  [push]
+  
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+  docker-build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Call workflow and Publish image
+        uses: Cschau0701vip/ReusableWorkflow/.github/workflows/reusable-workflow.yml@main
+        with:
+          registry_username: ${{secrets.REGISTRY_USERNAME}}
+          registry_password: ${{secrets.REGISTRY_PASSWORD}}
+          image_name: ${{vars.IMAGE_NAME}}
+          image_tag: $GITHUB_RUN_NUMBER
+      
