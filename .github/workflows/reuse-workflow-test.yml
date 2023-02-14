@@ -13,7 +13,8 @@ jobs:
   docker-build:
       uses: Cschau0701vip/ReusableWorkflow/.github/workflows/reusable-workflow.yml@main
       with:
-        registry_username: ${{secrets.REGISTRY_USERNAME}}
-        registry_password: ${{secrets.REGISTRY_PASSWORD}}
         image_name: ${{vars.IMAGE_NAME}}
         image_tag: $GITHUB_RUN_NUMBER
+      secrets:
+         registry_username: ${{secrets.REGISTRY_USERNAME}}
+         registry_password: ${{secrets.REGISTRY_PASSWORD}}
